@@ -26,7 +26,7 @@ SECRET_KEY = 'qec1e(f8jbm9*175^i#9)76#_o84u8r^#ei33l42w(+qphv)uq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['workto-do.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['workto-do.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'worktodo.urls'
@@ -77,11 +78,14 @@ WSGI_APPLICATION = 'worktodo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dfrho5d177ffm6',
+        'HOST': 'ec2-52-207-124-89.compute-1.amazonaws.com',
+        'PORT': 5432, 
+        'USER': 'hdevjuljlsspsx',
+        'PASSWORD': 'ba42005c666bc56b09d3054225b21abe239cafa8b19bb67315718cf80b889ddc'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
